@@ -1,4 +1,4 @@
-FROM debian:buster-slim
+FROM debian:10.12-slim
 
 # We're using sh not bash at this point
 # hadolint ignore=DL4006
