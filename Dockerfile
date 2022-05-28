@@ -1,7 +1,7 @@
 #---------------------------------------#
 # Dependencies, Linting & JS unit tests #
 #---------------------------------------#
-FROM debian:buster-slim AS dependencies
+FROM debian:10.12-slim AS dependencies
 
 # We're using sh not bash at this point
 # hadolint ignore=DL4006
@@ -111,7 +111,7 @@ WORKDIR /app/scenario-tools
 #-----------------------#
 # Golang Build and Test #
 #-----------------------#
-FROM debian:buster-slim AS build-and-test
+FROM debian:10.12-slim AS build-and-test
 
 RUN apt-get update                                                               \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
@@ -181,7 +181,7 @@ RUN make test-unit
 #------------------#
 # Launch Container #
 #------------------#
-FROM debian:buster-slim
+FROM debian:10.12-slim
 
 RUN apt-get update                                                               \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
